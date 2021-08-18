@@ -23,7 +23,7 @@ class TreeNode {
 }
 
 function goodNodes(root: TreeNode | null): number {
-  let goodCount: number = 0;
+  let goodCount = 0;
 
   const checkChildren = (node: TreeNode, max: number): void => {
     if (node === null) return;
