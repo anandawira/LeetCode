@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/anandawira/LeetCode/issues"
   },
-  "homepage": "https://github.com/anandawira/LeetCode#readme"
+  "homepage": "https://github.com/anandawira/LeetCode#readme",
+  "devDependencies": {
+    "@types/node": "^16.6.2"
+  }
 }
