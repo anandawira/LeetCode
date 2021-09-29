@@ -1,4 +1,4 @@
-package reverse_linked_list
+package random
 
 type ListNode struct {
 	Val  int

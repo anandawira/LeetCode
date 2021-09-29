@@ -1,4 +1,4 @@
-package sort_array_by_parity_ii
+package daily
 
 func sortArrayByParityII(nums []int) []int {
 	// To store misplaced odds and evens number

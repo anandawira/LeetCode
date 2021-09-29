@@ -1,4 +1,4 @@
-package length_of_last_word
+package random
 
 func lengthOfLastWord(s string) int {
 	endIndex := len(s)-1

@@ -1,4 +1,4 @@
-package two_sum
+package random
 
 func twoSum(nums []int, target int) []int {
 	previousNums := make(map[int]int)
