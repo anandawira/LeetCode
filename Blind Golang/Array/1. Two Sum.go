@@ -1,4 +1,4 @@
-package Array
+package array
 
 func twoSum(nums []int, target int) []int {
 	checkedNumbers := make(map[int]int)
@@ -6,9 +6,7 @@ func twoSum(nums []int, target int) []int {
 	for index, cur := range nums {
 		diff := target - cur
 
-
-
-		if v, ok := checkedNumbers[diff]; ok{
+		if v, ok := checkedNumbers[diff]; ok {
 			return []int{index, v}
 		}
 
