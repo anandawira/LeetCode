@@ -17,18 +17,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	res := new(ListNode)
 	cur := res
 
-	for list1 != nil || list2 != nil {
-		if list1 == nil {
-			cur.Next = list2
-			list2 = nil
-			continue
-		}
-
-		if list2 == nil {
-			cur.Next = list1
-			list1 = nil
-			continue
-		}
+	for list1 != nil && list2 != nil {
 
 		if list1.Val > list2.Val {
 			cur.Next = list2
@@ -37,6 +26,13 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 			cur.Next = list1
 			cur, list1 = cur.Next, list1.Next
 		}
+	}
+	if list1 == nil {
+		cur.Next = list2
+
+	} else if list2 == nil {
+		cur.Next = list1
+
 	}
 
 	return res.Next

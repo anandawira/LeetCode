@@ -1,88 +1,80 @@
 package shopee
 
 // type LRUCache struct {
-// 	Head, Tail *Node
-// 	Mp         map[int]*Node
-// 	Capacity   int
+// 	head, tail *Node
+// 	mp         map[int]*Node
+// 	capacity   int
 // }
 
 // type Node struct {
-// 	Prev, Next *Node
-// 	Key, Value int
+// 	prev, next *Node
+// 	key, value int
 // }
 
 // func Constructor(capacity int) LRUCache {
 // 	head := Node{
-// 		Prev:  nil,
-// 		Next:  nil,
-// 		Key:   0,
-// 		Value: 0,
+// 		prev:  nil,
+// 		next:  nil,
+// 		key:   0,
+// 		value: 0,
 // 	}
 
 // 	tail := Node{
-// 		Prev:  nil,
-// 		Next:  nil,
-// 		Key:   0,
-// 		Value: 0,
+// 		prev:  nil,
+// 		next:  nil,
+// 		key:   0,
+// 		value: 0,
 // 	}
 
-// 	head.Next = &tail
-// 	tail.Prev = &head
+// 	head.next = &tail
+// 	tail.prev = &head
 
 // 	return LRUCache{
-// 		Head:     &head,
-// 		Tail:     &tail,
-// 		Mp:       make(map[int]*Node),
-// 		Capacity: capacity,
+// 		head:     &head,
+// 		tail:     &tail,
+// 		mp:       make(map[int]*Node),
+// 		capacity: capacity,
 // 	}
-
 // }
 
 // func (this *LRUCache) Get(key int) int {
-// 	if n, ok := this.Mp[key]; ok {
+// 	if n, ok := this.mp[key]; ok {
 // 		this.remove(n)
 // 		this.insert(n)
-// 		return n.Value
+// 		return n.value
 // 	}
 
 // 	return -1
 // }
 
 // func (this *LRUCache) Put(key int, value int) {
-// 	if _, ok := this.Mp[key]; ok {
-// 		this.remove(this.Mp[key])
+// 	if _, ok := this.mp[key]; ok {
+// 		this.remove(this.mp[key])
 // 	}
 
-// 	if len(this.Mp) == this.Capacity {
-// 		this.remove(this.Tail.Prev)
+// 	if len(this.mp) == this.capacity {
+// 		this.remove(this.tail.prev)
 // 	}
 
 // 	this.insert(&Node{
-// 		Prev:  nil,
-// 		Next:  nil,
-// 		Key:   key,
-// 		Value: value,
+// 		prev:  nil,
+// 		next:  nil,
+// 		key:   key,
+// 		value: value,
 // 	})
 // }
 
 // func (this *LRUCache) remove(node *Node) {
-// 	delete(this.Mp, node.Key)
-// 	node.Prev.Next = node.Next
-// 	node.Next.Prev = node.Prev
+// 	delete(this.mp, node.key)
+// 	node.prev.next = node.next
+// 	node.next.prev = node.prev
 // }
 
 // func (this *LRUCache) insert(node *Node) {
-// 	this.Mp[node.Key] = node
-// 	next := this.Head.Next
-// 	this.Head.Next = node
-// 	node.Prev = this.Head
-// 	next.Prev = node
-// 	node.Next = next
+// 	this.mp[node.key] = node
+// 	next := this.head.next
+// 	this.head.next = node
+// 	node.prev = this.head
+// 	next.prev = node
+// 	node.next = next
 // }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * obj := Constructor(capacity);
- * param_1 := obj.Get(key);
- * obj.Put(key,value);
- */

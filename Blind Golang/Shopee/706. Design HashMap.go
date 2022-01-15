@@ -1,88 +1,87 @@
 package shopee
 
-// type Node struct {
-// 	key   int
-// 	value int
-// 	next  *Node
-// }
+type Node struct {
+	key, val int
+	next     *Node
+}
 
-// type MyHashMap struct {
-// 	items []*Node
-// 	size  int
-// }
+type MyHashMap struct {
+	items []*Node
+	size  int
+}
 
-// func Constructor() MyHashMap {
-// 	size := 1000
-// 	return MyHashMap{
-// 		items: make([]*Node, size),
-// 		size:  size,
-// 	}
-// }
+func Constructor() MyHashMap {
+	const size = 1000
+	return MyHashMap{
+		items: make([]*Node, size),
+		size:  size,
+	}
+}
 
-// func (this *MyHashMap) Put(key int, value int) {
-// 	index := key % this.size
-// 	if this.items[index] == nil {
-// 		this.items[index] = &Node{key: key, value: value}
-// 		return
-// 	}
+func (this *MyHashMap) Put(key int, value int) {
+	index := key % this.size
 
-// 	item := this.items[index]
+	if this.items[index] == nil {
+		this.items[index] = &Node{key: key, val: value}
+		return
+	}
 
-// 	for item != nil {
-// 		if item.key == key {
-// 			item.value = value
-// 			return
-// 		}
+	item := this.items[index]
 
-// 		if item.next == nil {
-// 			item.next = &Node{key: key, value: value}
-// 			return
-// 		}
+	for item != nil {
+		if item.key == key {
+			item.val = value
+			return
+		}
 
-// 		item = item.next
-// 	}
-// }
+		if item.next == nil {
+			item.next = &Node{key: key, val: value}
+			return
+		}
 
-// func (this *MyHashMap) Get(key int) int {
-// 	index := key % this.size
-// 	if this.items[index] == nil {
-// 		return -1
-// 	}
+		item = item.next
+	}
+}
 
-// 	item := this.items[index]
+func (this *MyHashMap) Get(key int) int {
+	index := key % this.size
+	if this.items[index] == nil {
+		return -1
+	}
 
-// 	for item != nil {
-// 		if item.key == key {
-// 			return item.value
-// 		}
+	item := this.items[index]
 
-// 		item = item.next
-// 	}
+	for item != nil {
+		if item.key == key {
+			return item.val
+		}
 
-// 	return -1
-// }
+		item = item.next
+	}
 
-// func (this *MyHashMap) Remove(key int) {
-// 	index := key % this.size
-// 	if this.items[index] == nil {
-// 		return
-// 	}
+	return -1
+}
 
-// 	item := this.items[index]
+func (this *MyHashMap) Remove(key int) {
+	index := key % this.size
+	if this.items[index] == nil {
+		return
+	}
 
-// 	if item.key == key {
-// 		this.items[index] = item.next
-// 	}
+	item := this.items[index]
 
-// 	prev, item := item, item.next
+	if item.key == key {
+		this.items[index] = item.next
+	}
 
-// 	for item != nil {
-// 		if item.key == key {
-// 			prev.next = item.next
-// 			return
-// 		}
+	prev, item := item, item.next
 
-// 		prev = item
-// 		item = item.next
-// 	}
-// }
+	for item != nil {
+		if item.key == key {
+			prev.next = item.next
+			return
+		}
+
+		prev, item = item, item.next
+	}
+}
