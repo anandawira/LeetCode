@@ -1,17 +1,17 @@
 package array
 
-func twoSum(nums []int, target int) []int {
-	checkedNumbers := make(map[int]int)
+// func twoSum(nums []int, target int) []int {
+// 	checkedNumbers := make(map[int]int)
 
-	for index, cur := range nums {
-		diff := target - cur
+// 	for index, cur := range nums {
+// 		diff := target - cur
 
-		if v, ok := checkedNumbers[diff]; ok {
-			return []int{index, v}
-		}
+// 		if v, ok := checkedNumbers[diff]; ok {
+// 			return []int{index, v}
+// 		}
 
-		checkedNumbers[cur] = index
-	}
+// 		checkedNumbers[cur] = index
+// 	}
 
-	return nil
-}
+// 	return nil
+// }
