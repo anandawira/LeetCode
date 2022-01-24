@@ -1,3 +1,5 @@
+package random
+
 func findMaxConsecutiveOnes(nums []int) int {
 	var max, count int
 
